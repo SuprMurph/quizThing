@@ -293,47 +293,28 @@ class Quiz extends Component {
         if (this.state.resultsSubmitted) {
             return <Redirect to="/leaderboard" />
         }
-<<<<<<< HEAD
             return (
                 <React.Fragment>
                   
                   <div className="quiz-body">
-=======
-        return (
-            <React.Fragment>
-                
-                <div className="quiz-body">
-
->>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     { this.state.quizSelected ? (
                         <div className="timerBox">
                             <p id="timer">Timer: {this.state.seconds} </p> 
                         </div>
                     ) : null }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     {/* <h1 className="welcome-text">Welcome to the quiz, {this.state.userName}!!</h1>
                     { !this.state.loggedIn && <h1>You are not logged in</h1>}
                     { !this.state.quizSelected && this.state.loggedIn ? (
                         <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
                     ) : null } */}
-<<<<<<< HEAD
-=======
                 
                     
 
->>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     <h1 id="greeting">Welcome to the quiz, {this.state.userName}!!</h1>
                     { !this.state.loggedIn && <h1>You are not logged in</h1>}
                     { !this.state.quizSelected && this.state.loggedIn ? (
                         <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
                     ) : null }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     { this.state.quizSelected && this.state.questionsAnswered >= 0 ? displayCards : null}
                     { this.state.questionsAnswered >= 10 ? (
                         <ResultsCard submitToLeaderboardFunc={this.submitToLeaderboard} score={this.state.correctAnswerCount} time={this.state.seconds}/>
@@ -342,10 +323,6 @@ class Quiz extends Component {
                     )}
                     <h4>{this.state.message}</h4>
                 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
             </React.Fragment>
         )
     }
