@@ -1,10 +1,12 @@
 .leaderboard-flexbox {
     border: solid 10px #6983aa;
+    border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
     border-radius: 10px;
+    margin-bottom: 10%;
 }
 
 .row, .header {

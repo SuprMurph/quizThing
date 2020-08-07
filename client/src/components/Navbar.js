@@ -27,7 +27,7 @@ export default function Navbar() {
                 <Link to = "/login">Login</Link>
                 <Link to = "/register">Register</Link>
                 <Link to = "/quiz">Quiz</Link>
-                <Link to = "/leaderboard">Leaderboard</Link>
+                {/* <Link to = "/leaderboard">Leaderboard</Link> */}
                 <Link id="logout-link" to = "/logout" onClick={logoutFunc}>logout</Link>
                 
             </nav>

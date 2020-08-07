@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background: url('./static/questionMarksBlur.jpg'), linear-gradient(rgba(65, 0, 125, 0.7),rgba(168, 130, 219, 0.7));
+  background-blend-mode: overlay;
+  border: 20px solid #8ec6c5;
+  height: 100%;
+  box-sizing: border-box;
+}

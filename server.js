@@ -23,8 +23,13 @@ mongoose.connect(process.env.DB_URL, {
 })
 .then(() => console.log("MongoDB is connected"));
 
+<<<<<<< HEAD
 //Register Code-------------------------------------------------||
 app.get("/",  (req, res) => {
+=======
+//Register Code-----"--------------------------------------------||
+app.get("/", (req, res) => {
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
     res.send("Hello from Nodejs");
 
     // res.render("http://localhost:3000/")

@@ -1,5 +1,6 @@
 .form-container {
     border: 10px solid #6983aa;
+    border-radius: 10px;
     margin: 0 auto;
     width: 40%;
     height: 100%;
@@ -30,7 +31,21 @@
 }
 
 .quiz-selection-button {
-    margin: 2em 0;
+    /* margin: 2em 0; */
+    margin: 1em;
+    padding: 3px 6px 3px 6px;
+    font-size: 20px;
+    background-color: rgba(244,244,244, 0.2);
+    color: #3d5270;
+    border: 2px solid #6983aa;
+    border-radius: 10px;
+    padding: 7px 10px;
+}
+.quiz-selection-button:hover{
+    color: white;
+    border: 2px solid white;
+    background-color: rgb(142,198,197);
+    transition-duration: 0.3s;
 }
 
 

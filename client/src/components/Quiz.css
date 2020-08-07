@@ -1,6 +1,6 @@
-.quiz-body {
-    /* background-color: yellow; */
-}
+/* .quiz-body {
+    
+} */
 
 .welcome-text {
     color: white;
@@ -9,6 +9,7 @@
 
 #greeting {
     text-align: center;
+    color: white;
 }
 
 .timerBox{

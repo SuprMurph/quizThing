@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
 import axios from 'axios';
-import QCard from './qCard';
+import QCard from './QCard';
 import ResultsCard from './ResultsCard';
 import QuizSelection from './QuizSelection';
 import { Redirect } from 'react-router-dom';
@@ -23,7 +23,8 @@ class Quiz extends Component {
         loading: true,
         userId: "",
         userName: "",
-        resultsSubmitted: false
+        resultsSubmitted: false,
+        visibleQcard: ["true", "false", "false", "false", "false", "false", "false", "false", "false", "false"]
     }
 
     // Choosing category and difficulty
@@ -178,11 +179,30 @@ class Quiz extends Component {
 
     formSubmit = (event) => {
         event.preventDefault();
+        let visibleQcard = [...this.state.visibleQcard];
+        let nextIndex = parseInt(event.target.name);
+
+        console.log(visibleQcard);
+
+        visibleQcard[event.target.name-1] = "false";
+        visibleQcard[nextIndex] = "true;"
+
+        console.log(visibleQcard);
+        
+
+
+        let nextCard = this.state.visibleQcard[nextIndex];
+
+        console.log(nextIndex);
+        console.log(nextCard);
+
         console.log(this.state.userAnswer);
         console.log(`This is the question number: ${event.target.name}`);
         this.checkAnswer(this.state.userAnswer, this.state.quizData[event.target.name-1].correct_answer);
         this.setState({
-            questionsAnswered: this.state.questionsAnswered < 10 ? this.state.questionsAnswered + 1 : 10
+            questionsAnswered: this.state.questionsAnswered < 10 ? this.state.questionsAnswered + 1 : 10,
+            visibleQcard: visibleQcard
+
         }, () => {
             console.log(`Questions answered: ${this.state.questionsAnswered}/10`);
             if (this.state.questionsAnswered === 10) {
@@ -214,13 +234,12 @@ class Quiz extends Component {
             questionsAnswered: ''
         })
     }
-
     render() {
         let displayCards = this.state.quizData.length > 0 && this.state.quizData.map( (quizDatum, index) => {
             if (index === 0) {
                 return (
                     <QCard 
-                    className="visible-QCard"
+                    className={this.state.visibleQcard[index]}
                     key={index} 
                     qNo={index+1} 
                     text={quizDatum.question}
@@ -236,7 +255,7 @@ class Quiz extends Component {
             } else if (index > 0 && index < 9){
                 return (
                     <QCard
-                    className="invisible-QCard"
+                    className={this.state.visibleQcard[index]}
                     key={index} 
                     qNo={index+1} 
                     text={quizDatum.question}
@@ -252,7 +271,7 @@ class Quiz extends Component {
             } else if (index === 9) {
                 return (
                     <QCard
-                    className="invisible-QCard"
+                    className={this.state.visibleQcard[index]}
                     key={index} 
                     qNo={index+1} 
                     text={quizDatum.question}
@@ -274,25 +293,47 @@ class Quiz extends Component {
         if (this.state.resultsSubmitted) {
             return <Redirect to="/leaderboard" />
         }
+<<<<<<< HEAD
             return (
                 <React.Fragment>
                   
                   <div className="quiz-body">
+=======
+        return (
+            <React.Fragment>
+                
+                <div className="quiz-body">
+
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     { this.state.quizSelected ? (
                         <div className="timerBox">
                             <p id="timer">Timer: {this.state.seconds} </p> 
                         </div>
                     ) : null }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     {/* <h1 className="welcome-text">Welcome to the quiz, {this.state.userName}!!</h1>
                     { !this.state.loggedIn && <h1>You are not logged in</h1>}
                     { !this.state.quizSelected && this.state.loggedIn ? (
                         <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
                     ) : null } */}
+<<<<<<< HEAD
+=======
+                
+                    
+
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     <h1 id="greeting">Welcome to the quiz, {this.state.userName}!!</h1>
                     { !this.state.loggedIn && <h1>You are not logged in</h1>}
                     { !this.state.quizSelected && this.state.loggedIn ? (
                         <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
                     ) : null }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
                     { this.state.quizSelected && this.state.questionsAnswered >= 0 ? displayCards : null}
                     { this.state.questionsAnswered >= 10 ? (
                         <ResultsCard submitToLeaderboardFunc={this.submitToLeaderboard} score={this.state.correctAnswerCount} time={this.state.seconds}/>
@@ -301,6 +342,10 @@ class Quiz extends Component {
                     )}
                     <h4>{this.state.message}</h4>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a448c3f7625b1c85c6f3c8caa48ef2ece38f3d8
             </React.Fragment>
         )
     }

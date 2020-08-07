@@ -15,6 +15,7 @@ a {
 
 a:hover {
     background-color: #6983aa;
+    transition-duration: 0.3s;
 }
 
 #logout-link {

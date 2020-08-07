@@ -72,9 +72,6 @@ export default class Login extends Component {
             console.log("There was an error")
         });
     }
-    
-
-
 
     render() {
         if (this.state.loggedIn) {
@@ -91,9 +88,9 @@ export default class Login extends Component {
                         <input className="login-input" onChange={this.recordPassword} value={this.state.inputPassword} type="password" placeholder="" name="userPassword"/><br />
                         <button className="login-button" type="submit">Login</button>
                     </form>
-                    {this.state.message === "Login unsuccessful" ? (<h4>Try to register instead</h4>) : null}
+                    {this.state.message === "Login unsuccessful" ? (<h4>{this.state.message}</h4>) : null}
                 </div>
             </div>
-    )
-}
+        )
+    }
 }
