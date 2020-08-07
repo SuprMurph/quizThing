@@ -36,7 +36,7 @@ class Leaderboard extends Component {
             // </div> key={index}>{user.name} got a score of {user.score} in {user.time} seconds</li> )
 
             <div className="row">
-                <div class="column _20 centered">
+                <div className="column _20 centered">
                     <p>{index+1}</p>
                 </div>
                 <div className="column _40">

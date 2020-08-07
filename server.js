@@ -24,8 +24,9 @@ mongoose.connect(process.env.DB_URL, {
 .then(() => console.log("MongoDB is connected"));
 
 //Register Code-------------------------------------------------||
-app.get("/", (req, res) => {
+app.get("/",  (req, res) => {
     res.send("Hello from Nodejs");
+
     // res.render("http://localhost:3000/")
 });
 
@@ -150,23 +151,60 @@ app.get("/quiz", auth.isLoggedIn, (req,res) => {
             {
                 loggedIn: true,
                 userId: req.userId,
-                userName: req.foundUser.name
+                userName: req.foundUser.name,
+                userScore: req.foundUser.score,
+                userTime: req.foundUser.time
             }
         )
     } else {
         res.send("User is not logged in")
     }
 });
-
-
 //Login Code------------------------------------------------------||
 
+
+//Homepage code---------------------------------------------------||
+// app.get('/', auth.isLoggedIn, async (req,res) => {
+//     console.log("Checking if user is logged in (home)")
+    
+//     // const user = await User.find({ email: email });
+//     // console.log(`this is the user info ${user}`);
+
+//     if(req.foundUser) {
+//         console.log("User is logged in (home)");
+//         res.send(
+//             {
+//                 loggedIn: true,
+//                 userId: req.userId,
+//                 userName: req.foundUser.name,
+//                 userScore: req.foundUser.score,
+//                 userTime: req.foundUser.time
+//             }
+//         )
+//     } else {
+//         res.send("User is not logged in")
+//     } 
+// })
+
+// // app.get("/", async (req, res) => {
+// //     console.log("Retrieving user data(home)");
+
+// //     const allUsers = await User.find({ "score": { "$exists": true } }).sort({'score': -1, 'time': 1});
+// //     // const allUsers = await User.find();
+// //     res.send(allUsers);//data
+// // })
+//Homepage code---------------------------------------------------||
+
+
+//Logout Code-----------------------------------------------------||
 app.get('/logout', auth.logout, (req,res) => {
     console.log("inside logout page")
     res.send('User is logged out')
 })
-
+//Logout Code-----------------------------------------------------||
 
 app.listen( 5000, () => {
     console.log("Server is running on port 5000");
 });
+
+

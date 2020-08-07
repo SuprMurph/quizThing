@@ -277,47 +277,32 @@ class Quiz extends Component {
             return (
                 <React.Fragment>
                   
-                        <div className="quiz-body">
-
-                            <h1 className="welcome-text">Welcome to the quiz, {this.state.userName}!!</h1>
-                            { !this.state.loggedIn && <h1>You are not logged in</h1>}
-                            { !this.state.quizSelected && this.state.loggedIn ? (
-                                <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
-                            ) : null }
-                            
-                            
-                            { this.state.quizSelected ? (
-                                <div>
-                                    <p>Timer: {this.state.seconds} </p> 
-
-                        
-                        { this.state.quizSelected ? (
-                                <div className="timerBox">
-                                    <p id="timer">Timer: {this.state.seconds} </p> 
-
-                                    {/* <button onClick={this.startTimer}>To start</button>
-                                    <button onClick={this.stopTimer}>To stop</button> */}
-                                </div>
-                            ) : null }
-
-                            <h1 id="greeting">Welcome to the quiz, {this.state.userName}!!</h1>
-                            { !this.state.loggedIn && <h1>You are not logged in</h1>}
-                            { !this.state.quizSelected && this.state.loggedIn ? (
-                                <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
-                            ) : null }
-    
-                            { this.state.quizSelected && this.state.questionsAnswered >= 0 ? displayCards : null}
-                            { this.state.questionsAnswered >= 10 ? (
-                                <ResultsCard submitToLeaderboardFunc={this.submitToLeaderboard} score={this.state.correctAnswerCount} time={this.state.seconds}/>
-                            ) : (
-                                null
-                            )}
-                            <h4>{this.state.message}</h4>
+                  <div className="quiz-body">
+                    { this.state.quizSelected ? (
+                        <div className="timerBox">
+                            <p id="timer">Timer: {this.state.seconds} </p> 
                         </div>
-    
-                </React.Fragment>
-            )
+                    ) : null }
+                    {/* <h1 className="welcome-text">Welcome to the quiz, {this.state.userName}!!</h1>
+                    { !this.state.loggedIn && <h1>You are not logged in</h1>}
+                    { !this.state.quizSelected && this.state.loggedIn ? (
+                        <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
+                    ) : null } */}
+                    <h1 id="greeting">Welcome to the quiz, {this.state.userName}!!</h1>
+                    { !this.state.loggedIn && <h1>You are not logged in</h1>}
+                    { !this.state.quizSelected && this.state.loggedIn ? (
+                        <QuizSelection selectCategoryFunc={this.selectCategory} selectDifficultyFunc={this.selectDifficulty} selectQuizFunc={this.selectQuiz} />
+                    ) : null }
+                    { this.state.quizSelected && this.state.questionsAnswered >= 0 ? displayCards : null}
+                    { this.state.questionsAnswered >= 10 ? (
+                        <ResultsCard submitToLeaderboardFunc={this.submitToLeaderboard} score={this.state.correctAnswerCount} time={this.state.seconds}/>
+                    ) : (
+                        null
+                    )}
+                    <h4>{this.state.message}</h4>
+                </div>
+            </React.Fragment>
+        )
     }
 }
-
 export default Quiz;
